@@ -1,4 +1,5 @@
 # Symfony
+[![Technos](https://skillicons.dev/icons?i=php,symfony)](https://skillicons.dev)
 ## Setup
 ### Create new project
 `symfony new app-name —webapp`
