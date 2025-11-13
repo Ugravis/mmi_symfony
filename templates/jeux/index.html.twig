@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des Jeux {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        th {
+            background-color: #000;
+            color: #fff;
+        }
+        .image-vignette {
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+{%  endblock %}
+
+{% block main %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Jeux</th>
+            <th>Editeur</th>
+            <th>Prix</th>
+            <th>Image</th>
+        </tr>
+        {% for jeu in jeux %}
+            <tr>
+                <td><a href="{{ path('app_fiche', { 'code': jeu.jeu_code }) }}">{{ jeu.jeu_code }}</a></td>
+                <td>{{ jeu.jeu_nom }}</td>
+                <td>{{ jeu.jeu_editeur }}</td>
+                <td>{{ jeu.jeu_prix_unit }}</td>
+                <td><img class="image-vignette" src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo1 }}" alt="{{ jeu.jeu_nom }}" /></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

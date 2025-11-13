@@ -16,10 +16,10 @@
                     <li><strong>MMIPLE</strong></li>
                 </ul>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Jeux</a></li>
+                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_jeux') }}">Jeux</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">A Propos</a></li>
+                    <li><a href="{{ path('app_about') }}">A Propos</a></li>
                 </ul>
             </nav>
         {% endblock %}

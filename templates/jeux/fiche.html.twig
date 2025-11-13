@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Jeu{% endblock %}
+    
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .image-jeu {
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+{%  endblock %}
+    
+{% block main %}
+  {% for jeu in jeux %}
+    {% if jeu.jeu_code == code %}
+
+        <h1>{{ jeu.jeu_nom }}</h1>
+        <h3>{{ jeu.jeu_prix_unit }} €</h3>
+        
+        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo1 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
+        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo2 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
+        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo3 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
+    
+        <p>Entre <b>{{ jeu.jeu_nb_joueurs_mini }}</b> et <b>{{ jeu.jeu_nb_joueurs_maxi }}</b> joueurs. Durée d'une partie : <b>{{ jeu.jeu_duree_partie }} minutes.</p>
+        <p>Édité par <b>{{ jeu.jeu_editeur }}.</b></p>
+        <p>En stock (<b>{{ jeu.jeu_qte_stock }}</b> disponibles).</p>
+
+  {%  endif %}
+{%  endfor %}
+{% endblock %}
