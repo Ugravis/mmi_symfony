@@ -1,10 +1,16 @@
 # Symfony
-[![Technos](https://skillicons.dev/icons?i=php,symfony)](https://skillicons.dev)
+[![Technos](https://skillicons.dev/icons?i=php,symfony,mysql)](https://skillicons.dev)
 ## Setup
 ### Create new project
 `symfony new app-name —webapp`
 ### CLI
 `symfony console make:controller`  
+
+`symfony console doctrine:database:create`  
+`symfony console make:entity`  
+`symfony console make:migration`  
+`symfony console doctrine:migrations:migrate`  
+`symfony console doctrine:migrations:list`  
 ## Helper
 `export PATH="/Applications/XAMPP/xamppfiles/bin:$PATH"`  
 `source ~/.zshrc`
@@ -44,6 +50,9 @@
 {% if var1 == var2 %}
 {% endif %}
 ```
+
+## Doctrine ORM
+Entity, EntityManager, Repository, migrations. 
 
 ## Debug
 `dd($var)` : show variable content and stop code execution (abrv: dump, die - from VarDumper - var_dump() en mieux)
