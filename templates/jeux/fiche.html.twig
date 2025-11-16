@@ -13,20 +13,14 @@
 {%  endblock %}
     
 {% block main %}
-  {% for jeu in jeux %}
-    {% if jeu.jeu_code == code %}
+    <a href="{{ path('app_jeux') }}">Retour à la liste des jeux</a><br></br>
+    <h1>{{ game.name }}</h1>
+    <h3>{{ game.price }} €</h3>
 
-        <h1>{{ jeu.jeu_nom }}</h1>
-        <h3>{{ jeu.jeu_prix_unit }} €</h3>
-        
-        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo1 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
-        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo2 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
-        <img src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo3 }}" alt="{{ jeu.jeu_nom }}" class="image-jeu" />
-    
-        <p>Entre <b>{{ jeu.jeu_nb_joueurs_mini }}</b> et <b>{{ jeu.jeu_nb_joueurs_maxi }}</b> joueurs. Durée d'une partie : <b>{{ jeu.jeu_duree_partie }} minutes.</p>
-        <p>Édité par <b>{{ jeu.jeu_editeur }}.</b></p>
-        <p>En stock (<b>{{ jeu.jeu_qte_stock }}</b> disponibles).</p>
+    <img src="{{ asset('images/jeux/') }}{{ game.photo1 }}" alt="{{ game.name }}" class="image-jeu" />
+    <img src="{{ asset('images/jeux/') }}{{ game.photo2 }}" alt="{{ game.name }}" class="image-jeu" />
+    <img src="{{ asset('images/jeux/') }}{{ game.photo3 }}" alt="{{ game.name }}" class="image-jeu" />
 
-  {%  endif %}
-{%  endfor %}
+    <p>Entre <b>{{ game.mini }}</b> et <b>{{ game.max }}</b> joueurs. Durée d'une partie : <b>{{ game.duration }} minutes.</p>
+    <p>En stock (<b>{{ game.stock }}</b> disponibles).</p>
 {% endblock %}

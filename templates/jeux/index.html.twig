@@ -20,18 +20,16 @@
     <table>
         <tr>
             <th>id</th>
-            <th>Jeux</th>
-            <th>Editeur</th>
-            <th>Prix</th>
+            <th>Jeu</th>
             <th>Image</th>
+            <th>Prix</th>
         </tr>
-        {% for jeu in jeux %}
+        {% for game in games %}
             <tr>
-                <td><a href="{{ path('app_fiche', { 'code': jeu.jeu_code }) }}">{{ jeu.jeu_code }}</a></td>
-                <td>{{ jeu.jeu_nom }}</td>
-                <td>{{ jeu.jeu_editeur }}</td>
-                <td>{{ jeu.jeu_prix_unit }}</td>
-                <td><img class="image-vignette" src="{{ asset('images/jeux/') }}{{ jeu.jeu_photo1 }}" alt="{{ jeu.jeu_nom }}" /></td>
+                <td><a href="{{ path('app_fiche', { 'id': game.id }) }}">{{ game.id }}</a></td>
+                <td>{{ game.name }}</td>
+                <td><img class="image-vignette" src="{{ asset('images/jeux/') }}{{ game.photo1 }}" alt="{{ game.name }}" /></td>
+                <td>{{ game.price }}</td>
             </tr>
         {% endfor %}
     </table>

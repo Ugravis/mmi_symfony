@@ -29,10 +29,10 @@ class ImportJeux extends AbstractController
             $game->setPrice($item->jeu_prix_unit);
             $game->setStock($item->jeu_qte_stock);
 
-            $entityManager->persist($game);
+            // $entityManager->persist($game);
         }
 
-        $entityManager->flush();
+        // $entityManager->flush();
 
         return new Response('Importation réussie, ouvrez phpMyAdmin pour vérifier');    
     }
