@@ -24,7 +24,7 @@ final class JeuxController extends AbstractController
     }
 
     #[Route(
-        '/jeux/{id}', 
+        '/fiche/{id}', 
         name: 'app_fiche', 
         defaults: ['id' => 1], 
         requirements: ['id'=>'\d+']
