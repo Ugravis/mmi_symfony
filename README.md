@@ -1,16 +1,22 @@
 # Symfony
 [![Technos](https://skillicons.dev/icons?i=php,symfony,mysql)](https://skillicons.dev)
+
 ## Setup
+
 ### Create new project
 `symfony new app-name —webapp`
-### CLI
-`symfony console make:controller`  
 
-`symfony console doctrine:database:create`  
-`symfony console make:entity`  
-`symfony console make:migration`  
-`symfony console doctrine:migrations:migrate`  
-`symfony console doctrine:migrations:list`  
+### CLI
+```bash
+symfony console make:controller  
+
+symfony console doctrine:database:create  
+symfony console make:entity  
+symfony console make:migration  
+symfony console doctrine:migrations:migrate  
+symfony console doctrine:migrations:list  
+```
+
 ## Helper
 `export PATH="/Applications/XAMPP/xamppfiles/bin:$PATH"`  
 `source ~/.zshrc`
@@ -37,10 +43,12 @@
   {{ asset('/public_file') }}
   {{ path('route_name', {'param_1': var1, 'param_2:' var2 }) }}
 ```
+
 ### Heritage
 ```twig
 {% extends 'example.html.twig' %}
 ```
+
 ### PHP logic
 ```twig
 {% for jeu in jeux %}
@@ -58,7 +66,12 @@ Entity, EntityManager, Repository, migrations.
 `dd($var)` : show variable content and stop code execution (abrv: dump, die - from VarDumper - var_dump() en mieux)
 
 ## Launch project
+### Local
 Symfony server : `symfony server:start`, `http://127.0.0.1:8000/home`  
 XAMPP (depreciated) : `http://localhost/mmi_symfony/public/index.php/home` 
+### MMI VM
+http://mmiple.mmi-troyes.fr:8319  
+[Phpmyadmin](http://localhost:8080)
+
 ## Ressources
 🔗 [Course material](https://docs.mmi-troyes.fr/books/wr319d-wra319d)
