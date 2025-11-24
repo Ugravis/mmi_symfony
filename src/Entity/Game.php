@@ -41,6 +41,9 @@ class Game
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
 
+    #[ORM\ManyToOne(inversedBy: 'games')]
+    private ?Editor $editor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +153,18 @@ class Game
     public function setStock(?int $stock): static
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getEditor(): ?Editor
+    {
+        return $this->editor;
+    }
+
+    public function setEditor(?Editor $editor): static
+    {
+        $this->editor = $editor;
 
         return $this;
     }

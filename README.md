@@ -9,10 +9,11 @@
 ### CLI
 ```bash
 symfony console make:controller  
-
-symfony console doctrine:database:create  
 symfony console make:entity  
 symfony console make:migration  
+symfony console make:crud
+
+symfony console doctrine:database:create    
 symfony console doctrine:migrations:migrate  
 symfony console doctrine:migrations:list  
 ```
@@ -60,7 +61,8 @@ symfony console doctrine:migrations:list
 ```
 
 ## Doctrine ORM
-Entity, EntityManager, Repository, migrations. 
+Entity, EntityManager, Repository, migrations, relations (many-to-one, one-to-many, many-to-many - unidirectionnelle, bidirectionnelle). 
+Collections methodes : add, remove, contains, isEmpty, toArray. 
 
 ## Debug
 `dd($var)` : show variable content and stop code execution (abrv: dump, die - from VarDumper - var_dump() en mieux)
