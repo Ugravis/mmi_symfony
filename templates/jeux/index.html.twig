@@ -23,6 +23,7 @@
             <th>Jeu</th>
             <th>Image</th>
             <th>Prix</th>
+            <th>Editeur</th>
         </tr>
         {% for game in games %}
             <tr>
@@ -30,6 +31,7 @@
                 <td>{{ game.name }}</td>
                 <td><img class="image-vignette" src="{{ asset('images/jeux/') }}{{ game.photo1 }}" alt="{{ game.name }}" /></td>
                 <td>{{ game.price }}</td>
+                <td>{{ game.editor != null ? game.editor.name : "Non précisé" }}</td>
             </tr>
         {% endfor %}
     </table>

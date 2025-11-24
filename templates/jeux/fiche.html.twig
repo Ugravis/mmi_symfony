@@ -15,7 +15,8 @@
 {% block main %}
     <a href="{{ path('app_jeux') }}">Retour à la liste des jeux</a><br></br>
     <h1>{{ game.name }}</h1>
-    <h3>{{ game.price }} €</h3>
+    <h4>{{ game.editor ? 'Par ' ~ game.editor.name : 'Éditeur inconnu' }}</h4>
+    <h4>{{ game.price }} €</h4>
 
     <img src="{{ asset('images/jeux/') }}{{ game.photo1 }}" alt="{{ game.name }}" class="image-jeu" />
     <img src="{{ asset('images/jeux/') }}{{ game.photo2 }}" alt="{{ game.name }}" class="image-jeu" />

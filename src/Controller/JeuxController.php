@@ -16,7 +16,7 @@ final class JeuxController extends AbstractController
     public function index(GameRepository $gameRepository): Response
     {
         $games = $gameRepository->findAll();
-        dd($games);
+        // dd($games);
 
         return $this->render('jeux/index.html.twig', [
             'games' => $games,
