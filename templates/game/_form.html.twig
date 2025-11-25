@@ -5,14 +5,40 @@
     {{ form_row(game_form.price) }}
     {{ form_row(game_form.editor) }}
     {{ form_row(game_form.stock) }}
+
     <br />
     {{ form_row(game_form.mini) }}
     {{ form_row(game_form.max) }}
     {{ form_row(game_form.duration) }}
     <br />
+    
+    <div>
     {{ form_row(game_form.photo1) }}
+        {% if game.photo1 %}
+            <img src="{{ asset('images/jeux/' ~ game.photo1) }}" alt="{{ game.photo1 }}" style="max-width: 200px; max-height: 200px;">
+        {% else %}
+            <p>Pas de Photo</p>
+        {% endif %}
+    </div>
+
+    <div>
     {{ form_row(game_form.photo2) }}
+        {% if game.photo2 %}
+            <img src="{{ asset('images/jeux/' ~ game.photo2) }}" alt="{{ game.photo2 }}" style="max-width: 200px; max-height: 200px;">
+        {% else %}
+            <p>Pas de Photo</p>
+        {% endif %}
+    </div>
+    
+    <div>
     {{ form_row(game_form.photo3) }}
+        {% if game.photo3 %}
+            <img src="{{ asset('images/jeux/' ~ game.photo3) }}" alt="{{ game.photo3 }}" style="max-width: 200px; max-height: 200px;">
+        {% else %}
+            <p>Pas de Photo</p>
+        {% endif %}
+    </div>
+
     <br/>
     <button class="btn">{{ button_label|default('OK') }}</button>
     {{ form_end(game_form) }}
