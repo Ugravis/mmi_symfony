@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Jeu{% endblock %}
+
+{%  block stylesheets %}{% endblock %}
+
+{% block main %}
+    <h1>Modification du jeu {{ game.name }}</h1>
+    {{ include('game/_form.html.twig') }}
+{% endblock %}

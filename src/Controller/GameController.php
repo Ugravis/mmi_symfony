@@ -30,4 +30,29 @@ class GameController extends AbstractController
             'game_form' => $form->createView()
         ]);
     }
+
+    #[Route('/jeu/{id}/edit', name: 'app_game_edit', requirements: ['id' => '\d+'])]
+    public function edit(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $game = $entityManager->getRepository(Game::class)->find($id);
+
+        $form = $this->createForm(GameType::class, $game);
+        $form->handleRequest($request);
+
+        if (!$game) {
+            throw $this->createNotFoundException("Ce jeu n'existe pas");
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($game);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_fiche', ['id' => $game->getId()]);
+        }
+
+        return $this->render('game/edit.html.twig', [
+            'game_form' => $form->createView(),
+            'game' => $game,
+            'id' => $id
+        ]);
+    }
 }
