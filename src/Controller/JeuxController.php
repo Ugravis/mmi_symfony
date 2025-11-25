@@ -11,7 +11,7 @@ final class JeuxController extends AbstractController
 {
     #[Route(
         '/jeux', 
-        name: 'app_jeux'
+        name: 'app_games'
     )]
     public function index(GameRepository $gameRepository): Response
     {

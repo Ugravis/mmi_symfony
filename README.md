@@ -1,6 +1,6 @@
 # Symfony
 [![Technos](https://skillicons.dev/icons?i=php,symfony,mysql)](https://skillicons.dev)
-
+rajouter : form, labels
 ## Setup
 
 ### Create new project

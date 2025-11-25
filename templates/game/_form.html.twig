@@ -1,11 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello GameController!{% endblock %}
-
-{%  block stylesheets %}{% endblock %}
-
-{% block main %}
-    <h1>Formulaire Jeu</h1>
+{% block form %}
+    <h1>Formulaire du Jeu</h1>
     {{ form_start(game_form) }}
     {{ form_row(game_form.name) }}
     {{ form_row(game_form.price) }}
@@ -20,6 +14,6 @@
     {{ form_row(game_form.photo2) }}
     {{ form_row(game_form.photo3) }}
     <br/>
-
+    <button class="btn">{{ button_label|default('OK') }}</button>
     {{ form_end(game_form) }}
 {% endblock %}
