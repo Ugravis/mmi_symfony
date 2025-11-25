@@ -24,4 +24,8 @@
 
     <p>Entre <b>{{ game.mini }}</b> et <b>{{ game.max }}</b> joueurs. Durée d'une partie : <b>{{ game.duration }} minutes.</p>
     <p>En stock (<b>{{ game.stock }}</b> disponibles).</p>
+
+    <form method="post" action="{{ path('app_game_delete', {'id': game.id}) }}" onsubmit="return confirm('Êtes-vous sûr ?');">
+            <button class="btn btn-danger">Supprimer</button>
+        </form>
 {% endblock %}

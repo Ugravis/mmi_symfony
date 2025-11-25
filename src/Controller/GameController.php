@@ -55,4 +55,19 @@ class GameController extends AbstractController
             'id' => $id
         ]);
     }
+
+    #[Route(path: '/jeu/{id}/delete', name: 'app_game_delete', requirements: ['id' => '\d+'])]
+    public function delete(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $game = $entityManager->getRepository(Game::class)->find($id);
+
+        if (!$game) {
+            throw $this->createNotFoundException("Ce jeu n'existe pas");
+        }
+
+        $entityManager->remove($game);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_games');
+    }
 }
