@@ -12,6 +12,7 @@ symfony console make:controller
 symfony console make:entity  
 symfony console make:migration  
 symfony console make:crud
+symfony console make:form
 
 symfony console doctrine:database:create    
 symfony console doctrine:migrations:migrate  
@@ -73,7 +74,8 @@ Symfony server : `symfony server:start`, `http://127.0.0.1:8000/home`
 XAMPP (depreciated) : `http://localhost/mmi_symfony/public/index.php/home` 
 ### MMI VM
 http://mmiple.mmi-troyes.fr:8319  
-[Phpmyadmin](http://localhost:8080)
+[Phpmyadmin](http://localhost:8080)  
+Container : symfony-web
 
 ## Ressources
 🔗 [Course material](https://docs.mmi-troyes.fr/books/wr319d-wra319d)

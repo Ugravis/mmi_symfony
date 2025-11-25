@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{%  block stylesheets %}{% endblock %}
+
+{% block main %}
+    <h1>Formulaire Jeu</h1>
+    {{ form_start(game_form) }}
+    {{ form_row(game_form.name) }}
+    {{ form_row(game_form.price) }}
+    {{ form_row(game_form.editor) }}
+    {{ form_row(game_form.stock) }}
+    <br />
+    {{ form_row(game_form.mini) }}
+    {{ form_row(game_form.max) }}
+    {{ form_row(game_form.duration) }}
+    <br />
+    {{ form_row(game_form.photo1) }}
+    {{ form_row(game_form.photo2) }}
+    {{ form_row(game_form.photo3) }}
+    <br/>
+
+    {{ form_end(game_form) }}
+{% endblock %}
