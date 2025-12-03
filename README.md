@@ -16,6 +16,7 @@ symfony console make:crud
 symfony console make:form
 symfony console make:user
 symfony console make:registration-form
+symfony console make:security:form-login
 
 symfony console doctrine:database:create    
 symfony console doctrine:migrations:migrate  
@@ -139,6 +140,31 @@ Default entity User. Extends `UserInterface` and `PasswordAuthenticatedUserInter
 - `email` (l'id unique);
 - `roles[]` (au minimum le rôle *ROLE_USER*);
 - `password`. 
+Puis `make:registration-form`. 
+
+### Make:security:form-login
+
+Config: `/config/packages/security.yaml`. Actuellement, hash via `bcrypt`. Protection `CSRF` du formulaire de login. 
+```yaml
+password_hashers:
+  Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+firewall
+  ...
+  main
+    ...
+    form_login
+    ...
+    default_target_path: app_games
+    ...
+access_control
+  - { path: ^/games, roles: ROLE_USER}
+  - { path: ^/fiche, roles: ROLE_USER}
+  - { path: ^/import, role: ROLE_SUPER_ADMIN}
+  ...
+role_hierarchy:
+  ROLE_ADMIN: ROLE_USER
+  ROLE_SUPER_ADMIN: ROLE_ADMIN
+```
 
 ## Debug
 
