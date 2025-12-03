@@ -11,8 +11,11 @@
 symfony console make:controller  
 symfony console make:entity  
 symfony console make:migration  
+
 symfony console make:crud
 symfony console make:form
+symfony console make:user
+symfony console make:registration-form
 
 symfony console doctrine:database:create    
 symfony console doctrine:migrations:migrate  
@@ -126,7 +129,19 @@ Via `Request` (classe représentant un objet req classique). Egalement méthodes
   }
 ```
 
+## Security
+
+Library `symfony/security-bundle`
+
+### Make:user
+Default entity User. Extends `UserInterface` and `PasswordAuthenticatedUserInterface` (encode-decode passw). With fields:
+- `id`; 
+- `email` (l'id unique);
+- `roles[]` (au minimum le rôle *ROLE_USER*);
+- `password`. 
+
 ## Debug
+
 `dd($var)` : show variable content and stop code execution (abrv: dump, die - from VarDumper - var_dump() en mieux)
 
 ## Launch project
