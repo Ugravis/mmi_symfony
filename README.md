@@ -11,11 +11,11 @@
 symfony console make:controller  
 symfony console make:entity  
 symfony console make:migration  
-
 symfony console make:crud
 symfony console make:form
 symfony console make:user
 symfony console make:registration-form
+
 symfony console make:security:form-login
 
 symfony console doctrine:database:create    
@@ -156,15 +156,30 @@ firewall
     ...
     default_target_path: app_games
     ...
-access_control
-  - { path: ^/games, roles: ROLE_USER}
-  - { path: ^/fiche, roles: ROLE_USER}
-  - { path: ^/import, role: ROLE_SUPER_ADMIN}
   ...
 role_hierarchy:
   ROLE_ADMIN: ROLE_USER
   ROLE_SUPER_ADMIN: ROLE_ADMIN
 ```
+
+### Protect elements
+1. Soit dans le `security.yaml` avec `access_control`:
+
+```yaml
+access_control
+  - { path: ^/games, roles: ROLE_USER}
+  - { path: ^/fiche, roles: ROLE_USER}
+  - { path: ^/import, role: ROLE_SUPER_ADMIN}
+```
+   
+2. Soit directement dans Twig pour masquer certains éléments précis:
+```twig
+{% if is_granted('ROLE_ADMIN') %}
+{% endif %}
+```
+
+### Listener de renvoi si non-connecté
+Event `onKernelException` > `getThrowable()` > `AccessDeniedException`. 
 
 ## Debug
 
