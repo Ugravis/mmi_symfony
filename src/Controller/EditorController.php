@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Editor;
 use App\Form\EditorType;
 use App\Repository\EditorRepository;
+use App\Service\EditorService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +16,13 @@ use Symfony\Component\Routing\Attribute\Route;
 final class EditorController extends AbstractController
 {
     #[Route(name: 'app_editor_index', methods: ['GET'])]
-    public function index(EditorRepository $editorRepository): Response
+    public function index(EditorService $editorService, EditorRepository $editorRepository): Response
     {
+        $countEditor = $editorService->countEditor();
+
         return $this->render('editor/index.html.twig', [
             'editors' => $editorRepository->findAll(),
+            'countEditor' => $countEditor
         ]);
     }
 
