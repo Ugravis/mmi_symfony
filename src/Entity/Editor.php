@@ -33,6 +33,9 @@ class Editor
     #[ORM\OneToMany(targetEntity: Game::class, mappedBy: 'editor')]
     private Collection $games;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $phone = null;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
@@ -117,6 +120,18 @@ class Editor
                 $game->setEditor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): static
+    {
+        $this->phone = $phone;
 
         return $this;
     }

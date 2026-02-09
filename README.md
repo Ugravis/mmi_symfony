@@ -195,4 +195,5 @@ http://mmiple.mmi-troyes.fr:8319
 Container : symfony-web
 
 ## Ressources
-🔗 [Course material](https://docs.mmi-troyes.fr/books/wr319d-wra319d)
+🔗 [Course material S3](https://docs.mmi-troyes.fr/books/wr319d-wra319d)
+🔗 [Course material S4](https://cours.davidannebicque.fr/symfony/semestre-4/contexte-du-s4)

@@ -25,6 +25,7 @@
             <th>Jeu</th>
             <th>Image</th>
             <th>Prix</th>
+            <th>Avis</th>
             <th>Editeur</th>
             <th>Actions</th>
         </tr>
@@ -33,7 +34,8 @@
                 <td><a href="{{ path('app_fiche', { 'id': game.id }) }}">{{ game.id }}</a></td>
                 <td>{{ game.name }}</td>
                 <td><img class="image-vignette" src="{{ asset('images/jeux/') }}{{ game.photo1 }}" alt="{{ game.name }}" /></td>
-                <td>{{ game.price }}</td>
+                <td>{{ game.price|price('€', 2, ',', ' ') }}</td>
+                <td>{{ 3|stars }}</td>
                 <td>{{ game.editor != null ? game.editor.name : "Non précisé" }}</td>
                 <td><a href="{{ path('app_game_edit', { id: game.id }) }}">Modifier</a></td>
             </tr>
