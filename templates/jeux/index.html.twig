@@ -37,7 +37,22 @@
                 <td>{{ game.price|price('€', 2, ',', ' ') }}</td>
                 <td>{{ 3|stars }}</td>
                 <td>{{ game.editor != null ? game.editor.name : "Non précisé" }}</td>
-                <td><a href="{{ path('app_game_edit', { id: game.id }) }}">Modifier</a></td>
+                <td>
+                    <a 
+                        href="{{ path('app_game_edit', { id: game.id }) }}"
+                    >
+                        Modifier
+                    </a>
+
+                    <button
+                        class="btn btn-primary ajoutJeu" 
+                        data-id="{{ game.id }}" 
+                        data-name="{{ game.name }}" 
+                        data-price="{{ game.price }}"
+                    >
+                        Ajouter au panier
+                    </button>
+                </td>
             </tr>
         {% endfor %}
     </table>

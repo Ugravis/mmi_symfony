@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
 
-        {# {% block stylesheets %}
+        {% block stylesheets %}
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-        {% endblock %} #}
+        {% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
@@ -16,7 +16,6 @@
     <body>
         {% block nav %}
             <nav>
-                <i class='fa-solid fa-house'></i>
                 <ul>
                     <li><strong>MMIPLE</strong></li>
                 </ul>
@@ -26,6 +25,7 @@
                     <li><a href="{{ path('app_editor_index') }}">Editeurs</a></li>
                     <li><a href="{{ path('app_contact') }}">Contact</a></li>
                     <li><a href="{{ path('app_about') }}">A Propos</a></li>
+                    <li><a href="{{ path('app_cart') }}">Panier</a></li>
                 </ul>
             </nav>
         {% endblock %}
