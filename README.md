@@ -1,7 +1,7 @@
 # Symfony
 [![Technos](https://skillicons.dev/icons?i=php,symfony,mysql)](https://skillicons.dev)
 
-## Setup
+# Commands
 
 ### Create new project
 `symfony new app-name —webapp`
@@ -23,13 +23,7 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:migrations:list  
 ```
 
-## Helper
-`export PATH="/Applications/XAMPP/xamppfiles/bin:$PATH"`  
-`source ~/.zshrc`
-
-`php bin/console debug:router`
-
-## Twig
+# Twig
 ### Basic syntax
 ```twig
 {{ variable }}
@@ -65,7 +59,7 @@ symfony console doctrine:migrations:list
 {% endif %}
 ```
 
-## Doctrine ORM
+# Doctrine ORM
 Vocab: **Entity**, **EntityManager**, **Repository**, **migrations**, and **relations** (*many-to-one*, *one-to-many*, *many-to-many* - *unidirectionnelle*, *bidirectionnelle*). 
 
 Collections: les data provenant de relations (ex: game.editor) sont accessibles via Collection, avec les méthodes : `add()`, `remove()`, `contains()`, `isEmpty()`, `toArray()`.  
@@ -81,7 +75,7 @@ Après un `persist()`, `remove()`, etc : `flush()` pour commit les modifications
   $entityManager->flush();
 ```
 
-## Forms
+# Forms
 
 ### FormType
 
@@ -130,7 +124,7 @@ Via `Request` (classe représentant un objet req classique). Egalement méthodes
   }
 ```
 
-## Security
+# Security
 
 Library `symfony/security-bundle`
 
@@ -181,11 +175,20 @@ access_control
 ### Listener de renvoi si non-connecté
 Event `onKernelException` > `getThrowable()` > `AccessDeniedException`. 
 
-## Debug
+# Helper
+
+### Debug
 
 `dd($var)` : show variable content and stop code execution (abrv: dump, die - from VarDumper - var_dump() en mieux)
 
-## Launch project
+### Environment
+
+`export PATH="/Applications/XAMPP/xamppfiles/bin:$PATH"`  
+`source ~/.zshrc`
+
+`php bin/console debug:router`
+
+# Launch project
 ### Local
 Symfony server : `symfony server:start`, `http://127.0.0.1:8000/home`  
 XAMPP (depreciated) : `http://localhost/mmi_symfony/public/index.php/home` 
@@ -194,6 +197,6 @@ http://mmiple.mmi-troyes.fr:8319
 [Phpmyadmin](http://localhost:8080)  
 Container : symfony-web
 
-## Ressources
+# Ressources
 🔗 [Course material S3](https://docs.mmi-troyes.fr/books/wr319d-wra319d)
 🔗 [Course material S4](https://cours.davidannebicque.fr/symfony/semestre-4/contexte-du-s4)
