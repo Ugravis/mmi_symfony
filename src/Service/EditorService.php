@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Editor;
 use App\Repository\EditorRepository;
 
   class EditorService

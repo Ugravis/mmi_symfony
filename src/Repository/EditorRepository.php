@@ -40,4 +40,13 @@ class EditorRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function testEditor($postalCode): array {
+      return $this->createQueryBuilder('e')
+        ->andWhere('e.pc = :postalCode')
+        ->setParameter('postalCode', $postalCode)
+        ->getQuery()
+        ->getResult()
+      ;
+    }
 }

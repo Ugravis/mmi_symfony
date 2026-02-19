@@ -40,4 +40,20 @@ class GameRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findGamesByCriteria(float $minPrice, string $namePart): array
+    {
+        return $this->createQueryBuilder('g')
+            ->innerJoin('g.editor', 'e') // jointure avec l'éditeur
+            ->andWhere('g.price > :minPrice')
+            ->andWhere('g.name LIKE :namePart')
+            ->andWhere('e.pc = :postalCode')
+            ->setParameter('minPrice', $minPrice)
+            ->setParameter('namePart', '%' . $namePart . '%')
+            ->setParameter('postalCode', '33000')
+            ->orderBy('g.price', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
