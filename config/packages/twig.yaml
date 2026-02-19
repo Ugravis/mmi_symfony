@@ -1,5 +1,8 @@
 twig:
     file_name_pattern: '*.twig'
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        locale: '@request_stack'
 
 when@test:
     twig:

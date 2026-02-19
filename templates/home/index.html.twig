@@ -4,5 +4,19 @@
 
 {% block main %}
   <article>{{ message }}</article>
-  <article>Nous sommes le {{ 'now'|dateFr }}</article>
+  <article>
+    Date filtre twig manuel : 
+    <b>{{ 'now'|dateFr }}</b>
+  </article>
+  
+  <article>
+    Date filtre twig i18n : 
+    <b>{{ "now"|format_datetime('long', 'short') }}</b>
+  </article>
+
+  {# <article>
+    Monnaie : 
+    <b>{{ 10|format_currency('USD', {}, 'fr') }}</b>
+    <b>{{ 10|format_currency('USD', {}, app.locale) }}</b>
+  </article> #}
 {% endblock %}

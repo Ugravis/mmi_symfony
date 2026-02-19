@@ -20,12 +20,15 @@
                     <li><strong>MMIPLE</strong></li>
                 </ul>
                 <ul>
-                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
-                    <li><a href="{{ path('app_games') }}">Jeux</a></li>
-                    <li><a href="{{ path('app_editor_index') }}">Editeurs</a></li>
-                    <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                    <li><a href="{{ path('app_about') }}">A Propos</a></li>
-                    <li><a href="{{ path('app_cart') }}">Panier</a></li>
+                    <li><a href="{{ path('app_home') }}">{{ 'Accueil'|trans }}</a></li>
+                    <li><a href="{{ path('app_games') }}">{{ 'Jeux'|trans }}</a></li>
+                    <li><a href="{{ path('app_editor_index') }}">{{ 'Editeurs'|trans }}</a></li>
+                    <li><a href="{{ path('app_contact') }}">{{ 'Contact'|trans }}</a></li>
+                    <li><a href="{{ path('app_about') }}">{{ 'A Propos'|trans }}</a></li>
+                    <li><a href="{{ path('app_cart') }}">{{ 'Panier'|trans }}</a></li>
+
+                    <li><a href="{{ path('app_games', { _locale: 'fr' }) }}">FR</a></li>
+                    <li><a href="{{ path('app_games', { _locale: 'en' }) }}">EN</a></li>
                 </ul>
             </nav>
         {% endblock %}
