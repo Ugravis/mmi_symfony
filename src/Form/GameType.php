@@ -12,14 +12,26 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class GameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $postalCode = $options['postalCode'];
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new Length(
+                        [
+                            'min' => 2,
+                            'max' => 35,
+                            'minMessage' => 'Le jeu doit faire au moins 2 caractères',
+                            'maxMessage' => 'Le jeu doit faire au maximum 35 caractères'
+                        ]
+                    )
+                ]
             ])
             ->add('duration', IntegerType::class, [
                 'label' => 'Durée d\'une partie en minutes'
@@ -63,6 +75,7 @@ class GameType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Game::class,
+            'postalCode' => ''
         ]);
     }
 }

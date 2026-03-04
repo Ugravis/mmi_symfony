@@ -17,7 +17,9 @@ class GameController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager, UploadPhotoService $uploadPhotoService): Response
     {
         $game = new Game();
-        $form = $this->createForm(GameType::class, $game);
+        $form = $this->createForm(GameType::class, $game, [
+            'postalCode' => '75001'
+        ]);
 
         $form->handleRequest($request);
 
